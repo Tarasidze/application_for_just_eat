@@ -12,10 +12,14 @@
 1. **Clone the repository**:
 
    ```
-   git clone https://github.com/Tarasidze/application_for_just_eat.git
+   git clone https://github.com/Tarasidze/application_for_just_eat.git   
    
-   pip install requirements.txt
    ```  
+2. **Install requirements**
+
+   ```
+   pip install requirements.txt
+   ```
 
 ## :computer: API usage
 
@@ -26,9 +30,13 @@
    or
    ```
    api_client = Client()
-   cli_2.postcode = "EC4M 7RF"
+   api_client.postcode = "EC4M 7RF"
    ```
 2. **get restaurants**
    ```
-   cli.get_restaurants()
+   api_client.get_restaurants()   
+   ```
+   or
+   ```
+   api_client.restaurants
    ```

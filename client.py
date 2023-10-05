@@ -9,6 +9,8 @@ class Client:
             "Content-Type": "application/json",
             "User-Agent": ("Chrome/117.0.0.0 Safari/537.36")
         }
+        self.restaurants = []
+
 
     @property
     def postcode(self) -> str:
@@ -17,6 +19,7 @@ class Client:
     @postcode.setter
     def postcode(self, postcode: str) -> None:
         self._postcode = postcode
+        self.restaurants = self.get_restaurants()
 
     def get_restaurants(self) -> list:
 
@@ -26,14 +29,14 @@ class Client:
 
             data = response.json()
 
-            restaurants = [
+            self.restaurants = [
                 {"Name": restaurant["Name"],
                  "Rating": restaurant["RatingStars"],
                  "Cuisines": [cuisine["Name"] for cuisine in restaurant["Cuisines"]]
                  } for restaurant in data["Restaurants"]
             ]
 
-            return restaurants
+            return self.restaurants
 
         except requests.HTTPError as e:
             raise f"HTTP error: {str(e)}"
