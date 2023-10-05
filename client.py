@@ -27,10 +27,10 @@ class Client:
             data = response.json()
 
             restaurants = [
-                {"Name": restaurat["Name"],
-                 "Rating": restaurat["RatingStars"],
-                 "Cuisines": [cuisine["Name"] for cuisine in restaurat["Cuisines"]]
-                 } for restaurat in data["Restaurants"]
+                {"Name": restaurant["Name"],
+                 "Rating": restaurant["RatingStars"],
+                 "Cuisines": [cuisine["Name"] for cuisine in restaurant["Cuisines"]]
+                 } for restaurant in data["Restaurants"]
             ]
 
             return restaurants
